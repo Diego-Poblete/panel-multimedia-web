@@ -27,7 +27,7 @@ html, body, #dashboard {
   top: 30px;
   left: 32px;
   right: 470px;
-  bottom: 132px;
+  bottom: 184px;
   overflow: hidden;
   background: #000;
 }
@@ -95,7 +95,7 @@ html, body, #dashboard {
   position: absolute;
   top: 30px;
   right: 32px;
-  bottom: 132px;
+  bottom: 184px;
   width: 414px;
 }
 
@@ -122,15 +122,45 @@ html, body, #dashboard {
   right: 32px;
   bottom: 26px;
   left: 32px;
-  height: 82px;
-  padding: 13px 20px;
+  height: 134px;
+  padding: 12px 18px;
 }
 
-#weather-widget { float: left; height: 54px; }
-.weather-icon { float: left; width: 43px; height: 43px; padding-top: 3px; text-align: center; font-size: 34px; }
-#weather-city { padding-top: 1px; font-size: 18px; font-weight: 600; }
+#weather-widget { float: left; width: 300px; height: 108px; padding-top: 25px; }
+.weather-icon { float: left; width: 48px; height: 52px; padding-top: 3px; text-align: center; font-size: 38px; }
+#weather-current-copy { float: left; width: 154px; }
+#weather-city { padding-top: 1px; font-size: 17px; font-weight: 600; }
 #weather-summary { margin-top: 4px; font-size: 13px; color: #c3d9e8; }
-#weather-temperature { float: left; margin-left: 28px; padding-top: 4px; font-size: 36px; font-weight: 600; }
+#weather-temperature { float: left; padding-top: 2px; font-size: 34px; font-weight: 600; }
 
-#remote-help { float: right; padding-top: 14px; font-size: 15px; color: #c0d8e7; }
+#forecast-days {
+  position: absolute;
+  top: 12px;
+  right: 278px;
+  bottom: 12px;
+  left: 318px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.forecast-day {
+  display: inline-block;
+  width: 13.7%;
+  height: 108px;
+  margin-right: .55%;
+  padding-top: 9px;
+  border-left: 1px solid rgba(184, 218, 241, .14);
+  vertical-align: top;
+}
+
+.forecast-day:last-child { margin-right: 0; }
+.forecast-today { border-radius: 12px; border-left-color: transparent; background: rgba(52, 186, 224, .12); }
+.forecast-day-name { font-size: 12px; font-weight: 700; letter-spacing: 1px; color: #bcd6e6; }
+.forecast-icon { height: 45px; padding-top: 4px; font-size: 30px; line-height: 38px; }
+.forecast-temperatures { font-size: 15px; }
+.forecast-temperatures strong { margin-right: 4px; color: #fff; }
+.forecast-temperatures span { color: #94afc0; }
+.forecast-loading { padding-top: 43px; font-size: 14px; color: #a8cadc; }
+
+#remote-help { float: right; width: 260px; padding-top: 35px; text-align: right; white-space: nowrap; font-size: 12px; line-height: 2.2; color: #c0d8e7; }
 .remote-key { display: inline-block; margin: 0 4px; padding: 3px 7px; border: 1px solid rgba(255, 255, 255, .3); border-radius: 5px; font-size: 12px; color: #fff; }

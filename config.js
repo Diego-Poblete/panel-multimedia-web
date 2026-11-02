@@ -6,7 +6,7 @@ window.PANEL_CONFIG = {
   longitude: -70.6693,
   timeZone: 'America/Santiago',
   video: {
-    initialSource: 'youtube',
+    initialSource: 'hls',
     initialChannel: 0,
     channels: [
       {
@@ -40,8 +40,8 @@ window.PANEL_CONFIG = {
   },
   notifications: [
     {
-      title: 'Panel listo',
-      text: 'Versión web HTTPS para YouTube y widgets laterales.'
+      title: 'Panel informativo',
+      text: 'Señal principal, noticias y pronóstico de siete días.'
     }
   ]
 };

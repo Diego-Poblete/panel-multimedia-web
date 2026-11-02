@@ -16,6 +16,7 @@
   var weatherSummary = document.getElementById('weather-summary');
   var weatherTemperature = document.getElementById('weather-temperature');
   var weatherIcon = document.getElementById('weather-icon');
+  var forecastDays = document.getElementById('forecast-days');
   var notificationsList = document.getElementById('notifications-list');
   var newsSection = document.getElementById('news-section');
   var newsHeadline = document.getElementById('news-headline');
@@ -159,11 +160,56 @@
     return { text: 'Variable', icon: '•' };
   }
 
+  function shortDay(dateText, index) {
+    var names = ['DOM', 'LUN', 'MAR', 'MIÉ', 'JUE', 'VIE', 'SÁB'];
+    var date;
+    if (index === 0) return 'HOY';
+    date = new Date(dateText + 'T12:00:00');
+    return names[date.getDay()];
+  }
+
+  function renderForecast(daily) {
+    var count;
+    var i;
+    var card;
+    var day;
+    var icon;
+    var temperatures;
+    var condition;
+    if (!daily || !daily.time || !daily.time.length) {
+      forecastDays.innerHTML = '<div class="forecast-loading">Pronóstico no disponible</div>';
+      return;
+    }
+    count = Math.min(7, daily.time.length);
+    forecastDays.innerHTML = '';
+    for (i = 0; i < count; i += 1) {
+      condition = weatherInfo(daily.weather_code[i]);
+      card = document.createElement('div');
+      card.className = 'forecast-day' + (i === 0 ? ' forecast-today' : '');
+      day = document.createElement('div');
+      day.className = 'forecast-day-name';
+      day.textContent = shortDay(daily.time[i], i);
+      icon = document.createElement('div');
+      icon.className = 'forecast-icon';
+      icon.textContent = condition.icon;
+      temperatures = document.createElement('div');
+      temperatures.className = 'forecast-temperatures';
+      temperatures.innerHTML = '<strong>' + Math.round(daily.temperature_2m_max[i]) + '°</strong> ' +
+        '<span>' + Math.round(daily.temperature_2m_min[i]) + '°</span>';
+      card.appendChild(day);
+      card.appendChild(icon);
+      card.appendChild(temperatures);
+      forecastDays.appendChild(card);
+    }
+  }
+
   function updateWeather() {
     var request = new XMLHttpRequest();
     var url = 'https://api.open-meteo.com/v1/forecast?latitude=' + encodeURIComponent(config.latitude) +
       '&longitude=' + encodeURIComponent(config.longitude) +
-      '&current=temperature_2m,weather_code&timezone=' + encodeURIComponent(config.timeZone);
+      '&current=temperature_2m,weather_code' +
+      '&daily=weather_code,temperature_2m_max,temperature_2m_min' +
+      '&forecast_days=7&timezone=' + encodeURIComponent(config.timeZone);
     request.open('GET', url, true);
     request.onreadystatechange = function () {
       var data;
@@ -180,8 +226,10 @@
         weatherSummary.textContent = condition.text;
         weatherTemperature.textContent = Math.round(data.current.temperature_2m) + '°';
         weatherIcon.textContent = condition.icon;
+        renderForecast(data.daily);
       } catch (error) {
         weatherSummary.textContent = 'No se pudo leer el tiempo';
+        renderForecast(null);
       }
     };
     request.send();

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Panel Multimedia</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=0.2.0">
   </head>
   <body>
     <main id="dashboard">
@@ -45,16 +45,19 @@
       <footer id="bottom-panel" class="panel-card" aria-live="polite">
         <div id="weather-widget">
           <div id="weather-icon" class="weather-icon">☁</div>
-          <div>
+          <div id="weather-current-copy">
             <div id="weather-city">Santiago de Chile</div>
             <div id="weather-summary">Actualizando tiempo...</div>
           </div>
           <div id="weather-temperature">--°</div>
         </div>
-        <div id="remote-help"><span class="remote-key">1</span> HLS <span class="remote-key">2</span> YouTube <span class="remote-key">OK</span> audio / pausa</div>
+        <div id="forecast-days" aria-label="Pronóstico de los próximos siete días">
+          <div class="forecast-loading">Cargando pronóstico de 7 días...</div>
+        </div>
+        <div id="remote-help"><span class="remote-key">1</span> TV <span class="remote-key">◀</span><span class="remote-key">▶</span> cambiar <span class="remote-key">OK</span> audio</div>
       </footer>
     </main>
-    <script src="config.js"></script>
-    <script src="app.js"></script>
+    <script src="config.js?v=0.2.0"></script>
+    <script src="app.js?v=0.2.0"></script>
   </body>
 </html>

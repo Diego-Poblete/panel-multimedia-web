@@ -5,9 +5,9 @@ Esta es la versión estática destinada a GitHub Pages. Se sirve por HTTPS para 
 ## Contenido público seguro
 
 - Diseño partido: video a la izquierda y widgets a la derecha.
-- Reproductor YouTube embebido de demostración.
-- Señal HLS pública de demostración como respaldo con la tecla `1`.
-- Hora, clima, titulares y notificaciones locales.
+- Reproductor principal preparado para señales HLS compatibles con webOS.
+- Señal HLS pública de demostración con la tecla `1`.
+- Hora, clima actual y pronóstico de siete días, titulares y notificaciones locales.
 
 ## Antes de publicar
 
@@ -17,6 +17,7 @@ Esta es la versión estática destinada a GitHub Pages. Se sirve por HTTPS para 
 
 ## Operación remota
 
-- `1`: señal HLS de demostración.
+- `1`: señal HLS de demostración o TV configurada.
 - `2`: YouTube embebido.
 - `OK`: activa audio, pausa o reanuda.
+- `◀` / `▶`: cambia de canal cuando existe más de una señal configurada.
