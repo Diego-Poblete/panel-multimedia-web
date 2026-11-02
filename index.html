@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Panel Multimedia</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main id="dashboard">
+      <section id="video-panel" class="panel-card" aria-label="Contenido de video">
+        <div id="video-frame">
+          <video id="video-player" autoplay muted preload="metadata"></video>
+          <div id="youtube-container" hidden>
+            <div id="youtube-player-host"></div>
+          </div>
+        </div>
+        <div id="video-meta">
+          <div>
+            <span id="channel-badge">PRUEBA HLS</span>
+            <span id="channel-title">Cargando señal de demostración...</span>
+          </div>
+          <div id="player-status">Conectando</div>
+        </div>
+      </section>
+
+      <aside id="widgets-column" aria-live="polite">
+        <section id="clock-widget" class="panel-card widget-card">
+          <div id="clock-time">--:--</div>
+          <div id="clock-date">--</div>
+        </section>
+
+        <section id="notifications-widget" class="panel-card widget-card">
+          <div class="widget-heading">NOTIFICACIONES</div>
+          <div id="notifications-list" class="notifications-list">Sin notificaciones.</div>
+        </section>
+
+        <section id="news-widget" class="panel-card widget-card">
+          <div class="widget-heading">NOTICIAS <span id="news-section">ACTUALIZANDO</span></div>
+          <div id="news-headline">Buscando titulares...</div>
+          <div id="news-source"></div>
+        </section>
+      </aside>
+
+      <footer id="bottom-panel" class="panel-card" aria-live="polite">
+        <div id="weather-widget">
+          <div id="weather-icon" class="weather-icon">☁</div>
+          <div>
+            <div id="weather-city">Santiago de Chile</div>
+            <div id="weather-summary">Actualizando tiempo...</div>
+          </div>
+          <div id="weather-temperature">--°</div>
+        </div>
+        <div id="remote-help"><span class="remote-key">1</span> HLS <span class="remote-key">2</span> YouTube <span class="remote-key">OK</span> audio / pausa</div>
+      </footer>
+    </main>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
